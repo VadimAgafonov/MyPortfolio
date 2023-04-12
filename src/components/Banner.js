@@ -1,6 +1,8 @@
 import React from 'react'
 
-import { FaDribbble, FaGithub, FaYoutube } from 'react-icons/fa'
+import { FaGithub } from 'react-icons/fa'
+import { SlSocialVkontakte } from 'react-icons/sl'
+import { TbBrandTelegram } from 'react-icons/tb'
 import Image from '../assets/avatar.svg'
 
 import { motion } from 'framer-motion'
@@ -80,14 +82,14 @@ const Banner = () => {
 							viewport={{ once: false, amount: 0.7 }}
 							className='flex text-[20px] gap-x-6 max-w-max mx-auto lg:mx-0'
 						>
-							<a href='#'>
-								<FaYoutube />
+							<a href='https://t.me/vadimagafonoov' target='_blank'>
+								<TbBrandTelegram />
 							</a>
-							<a href='#'>
+							<a href='https://vk.com/vadimagafonoov' target='_blank'>
+								<SlSocialVkontakte />
+							</a>
+							<a href='https://github.com/VadimAgafonov' target='_blank'>
 								<FaGithub />
-							</a>
-							<a href='#'>
-								<FaDribbble />
 							</a>
 						</motion.div>
 					</div>
@@ -96,7 +98,6 @@ const Banner = () => {
 						variants={fadeIn('down', 0.5)}
 						initial='hidden'
 						whileInView={'show'}
-						
 						className='hidden lg:flex flex-1 max-w-[320px] lg:max-w-[482px]'
 					>
 						<img src={Image} alt='Image' />
