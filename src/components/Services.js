@@ -2,31 +2,20 @@ import React from 'react'
 
 import { motion } from 'framer-motion'
 import { BsArrowUpRight } from 'react-icons/bs'
+import { Link } from 'react-scroll'
 import { fadeIn } from '../variants'
 
 const services = [
 	{
 		name: 'UI/UX Design',
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente iure cum totam error illo s.',
+			'Мои работы в области UI/UX дизайна включают в себя разработку пользовательских интерфейсов для мобильных приложений, веб-сайтов и программного обеспечения. Я уделяю особое внимание деталям и функциональности, чтобы обеспечить максимальную удобство использования и привлекательный дизайн.',
 		link: 'Learn more',
 	},
 	{
 		name: 'Development',
 		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente iure cum totam error illo s.',
-		link: 'Learn more',
-	},
-	{
-		name: 'Digital Marketing',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente iure cum totam error illo s.',
-		link: 'Learn more',
-	},
-	{
-		name: 'Product Branding',
-		description:
-			'Lorem ipsum dolor sit amet consectetur adipisicing elit. Commodi sapiente iure cum totam error illo s.',
+			'Мои работы включают в себя создание красивых и современных дизайнов, разработку уникальных функций и оптимизацию производительности сайта. Я использую последние технологии и методы разработки, чтобы создавать сайты, которые не только выглядят прекрасно, но и работают быстро и эффективно.',
 		link: 'Learn more',
 	},
 ]
@@ -34,22 +23,23 @@ const services = [
 const Services = () => {
 	return (
 		<section className='section' id='services'>
-			<div className='container mx-auto'>
-				<div className='flex flex-col lg:flex-row'>
+			<div className='container mx-auto h-screen'>
+				<div className='flex flex-col lg:flex-row h-[800px] justify-center items-center'>
 					{/* text & image*/}
 					<motion.div
 						variants={fadeIn('right', 0.3)}
 						initial='hidden'
 						whileInView={'show'}
 						viewport={{ once: false, amount: 0.3 }}
-						className='flex-1 lg:bg-services lg:bg-bottom bg-no-repeat mix-blend-lighten mb-12 lg:mb-0'
+						className='flex-1 mb-12 lg:mb-0'
 					>
-						<h2 className='h2 text-accent mb-6'>What I Do.</h2>
-						<h3 className='h3 max-w-[455px] mb-16'>
-							I'm a Freelance Front-end Developer with over 5 years of
-							experience.
-						</h3>
-						<button className='btn btn-sm'>See my work</button>
+						<h2 className='h2 text-accent mb-6'>What I Do</h2>
+						<h4 className='h4 max-w-[455px] mb-16 leading-6'>
+						Я занимаюсь созданием привлекательных и функциональных сайтов, а также разработкой уникальных дизайнов. <br /> Моя цель - помочь клиентам достичь своих целей в интернете и привлечь больше пользователей на их сайты.
+						</h4>
+						<Link to='work' smooth={true} spy={true}>
+							<button className='btn btn-sm'>See my work</button>
+						</Link>
 					</motion.div>
 					{/* services */}
 					<motion.div
@@ -72,7 +62,7 @@ const Services = () => {
 											<h4 className='text-[20px] tracking-wider font-primary font-semibold mb-6'>
 												{name}
 											</h4>
-											<p className='font-secondary leading-tight'>
+											<p className='font-secondary leading-tight text-sm'>
 												{description}
 											</p>
 										</div>

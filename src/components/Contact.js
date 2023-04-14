@@ -2,6 +2,10 @@ import React from 'react'
 import { motion } from 'framer-motion'
 import { fadeIn } from '../variants'
 
+import { FaGithub } from 'react-icons/fa'
+import { SlSocialVkontakte } from 'react-icons/sl'
+import { TbBrandTelegram } from 'react-icons/tb'
+
 const Contact = () => {
 	return (
 		<section className='py-16 lg:section' id='contact'>
@@ -22,6 +26,24 @@ const Contact = () => {
 								Let's work <br />
 								together!
 							</h2>
+							{/* socials */}
+						<motion.div
+							variants={fadeIn('up', 0.7)}
+							initial='hidden'
+							whileInView={'show'}
+							viewport={{ once: false, amount: 0.7 }}
+							className='flex text-[20px] gap-x-6 max-w-max mx-auto lg:mx-0'
+						>
+							<a href='https://t.me/vadimagafonoov' target='_blank'>
+								<TbBrandTelegram />
+							</a>
+							<a href='https://vk.com/vadimagafonoov' target='_blank'>
+								<SlSocialVkontakte />
+							</a>
+							<a href='https://github.com/VadimAgafonov' target='_blank'>
+								<FaGithub />
+							</a>
+						</motion.div>
 						</div>
 					</motion.div>
 					{/* form */}

@@ -5,6 +5,8 @@ import { SlSocialVkontakte } from 'react-icons/sl'
 import { TbBrandTelegram } from 'react-icons/tb'
 import Image from '../assets/avatar.svg'
 
+import { Link } from 'react-scroll'
+
 import { motion } from 'framer-motion'
 import { TypeAnimation } from 'react-type-animation'
 import { fadeIn } from '../variants'
@@ -37,12 +39,7 @@ const Banner = () => {
 						>
 							<span className='text-white mr-4'>I am a</span>
 							<TypeAnimation
-								sequence={[
-									'Developer',
-									2000,
-									'Designer',
-									2000,
-								]}
+								sequence={['Developer', 2000, 'Designer', 2000]}
 								speed={50}
 								className='text-accent'
 								wrapper='span'
@@ -54,11 +51,14 @@ const Banner = () => {
 							initial='hidden'
 							whileInView={'show'}
 							viewport={{ once: false, amount: 0.7 }}
-							className='mb-8 max-w-lg mx-auto lg:mx-0'
+							className='mb-8 max-w-lg mx-auto lg:mx-0 leading-6 font-fourth font-regular'
 						>
-							Lorem ipsum dolor, sit amet consectetur adipisicing elit. Error
-							suscipit obcaecati officiis? Necessitatibus, iste. Cupiditate illo
-							labore maxime asperiores beatae.
+							Привет! Я - разработчик и дизайнер. Мои работы включают в себя
+							разработку сайтов, дизайн логотипов, создание макетов и многое
+							другое. Я стараюсь создавать не только красивые, но и
+							функциональные проекты, которые будут помогать моим клиентам
+							достигать своих целей. В моем портфолио вы можете ознакомиться с
+							моими лучшими работами и узнать больше о моих навыках и опыте.
 						</motion.p>
 						<motion.div
 							variants={fadeIn('up', 0.6)}
@@ -67,10 +67,14 @@ const Banner = () => {
 							viewport={{ once: false, amount: 0.7 }}
 							className='flex max-w-max gap-x-6 items-center mb-12 mx-auto lg:mx-0'
 						>
-							<button className='btn btn-lg'>Contact me</button>
-							<a href='#' className='text-gradient btn-link'>
-								My portfolio
-							</a>
+							<Link to='contact' smooth={true} spy={true}>
+								<button className='btn btn-lg'>Contact me</button>
+							</Link>
+							<Link to='work' smooth={true} spy={true}>
+								<a href='#' className='text-gradient btn-link'>
+									My portfolio
+								</a>
+							</Link>
 						</motion.div>
 						{/* socials */}
 						<motion.div

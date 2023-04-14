@@ -8,6 +8,8 @@ import { motion } from 'framer-motion'
 
 import { fadeIn } from '../variants'
 
+import { Link } from 'react-scroll'
+
 const About = () => {
 	const [ref, inView] = useInView({
 		treshhold: 0.5,
@@ -22,30 +24,28 @@ const About = () => {
 						initial='hidden'
 						whileInView={'show'}
 						viewport={{ once: false, amount: 0.3 }}
-						className='flex-1 bg-about bg-contain bg-no-repeat h-[640px] mix-blend-lighten bg-top lg:border border-pink-500 rounded-2xl'
+						className='flex-1 bg-none lg:bg-about lg:bg-contain lg:bg-no-repeat h-[640px] lg:mix-blend-lighten lg:bg-top lg:border border-pink-500 rounded-2xl'
 					></motion.div>
 					{/* text */}
-					<motion.div 
-					variants={fadeIn('left', 0.5)}
-					initial='hidden'
-					whileInView={'show'}
-					viewport={{ once: false, amount: 0.3 }}
-					className='flex-1'>
-						<h2 className='h2 text-accent'>About me.</h2>
+					<motion.div
+						variants={fadeIn('left', 0.5)}
+						initial='hidden'
+						whileInView={'show'}
+						viewport={{ once: false, amount: 0.3 }}
+						className='flex-1'
+					>
+						<h2 className='h2 text-accent'>About me</h2>
 						<h3 className='h3 mb-4'>
-							I'm a Freelance Front-end Developer with over 2 years of
-							experience.
+							I'm a Freelance Front-end Developer and Web Designer
 						</h3>
-						<p className='mb-6'>
-							Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro
-							magni repellendus eius inventore nostrum placeat. Necessitatibus
-							consectetur voluptas labore consequuntur?
+						<p className='mb-6 leading-6'>
+						Я являюсь профессионалом в области веб-разработки и дизайна. Мне нравится создавать красивые и функциональные веб-сайты, которые удовлетворяют потребности пользователей. Благодаря моему опыту, я могу создавать уникальные и привлекательные сайты, которые будут соответствовать вашим потребностям и требованиям. Я постоянно развиваю свои навыки и знания, чтобы обеспечивать моим клиентам лучший опыт веб-разработки и дизайна.
 						</p>
 						{/* stats */}
 						<div className='flex gap-x-6 lg:gap-x-10 mb-12'>
 							<div>
 								<div className='text-[40px] font-tertiary text-gradient mb-2'>
-									{inView ? <CountUp start={0} end={13} duration={3} /> : null}
+									{inView ? <CountUp start={0} end={2} duration={3} /> : null}
 								</div>
 								<div className='font-primary text-sm tracking-[2px]'>
 									Years of <br />
@@ -54,8 +54,7 @@ const About = () => {
 							</div>
 							<div>
 								<div className='text-[40px] font-tertiary text-gradient mb-2'>
-									{inView ? <CountUp start={0} end={15} duration={3} /> : null}
-									k+
+									{inView ? <CountUp start={0} end={57} duration={3} /> : null}
 								</div>
 								<div className='font-primary text-sm tracking-[2px]'>
 									Projects <br />
@@ -64,8 +63,7 @@ const About = () => {
 							</div>
 							<div>
 								<div className='text-[40px] font-tertiary text-gradient mb-2'>
-									{inView ? <CountUp start={0} end={12} duration={3} /> : null}
-									k+
+									{inView ? <CountUp start={0} end={71} duration={3} /> : null}
 								</div>
 								<div className='font-primary text-sm tracking-[2px]'>
 									Satisfied <br />
@@ -74,10 +72,14 @@ const About = () => {
 							</div>
 						</div>
 						<div className='flex gap-x-8 items-center'>
-							<button className='btn btn-lg'>Contact me</button>
-							<a href='#' className='text-gradient btn-link'>
-								My portfolio
-							</a>
+							<Link to='contact' smooth={true} spy={true}>
+								<button className='btn btn-lg'>Contact me</button>
+							</Link>
+							<Link to='work' smooth={true} spy={true}>
+								<a href='#' className='text-gradient btn-link'>
+									My portfolio
+								</a>
+							</Link>
 						</div>
 					</motion.div>
 				</div>
