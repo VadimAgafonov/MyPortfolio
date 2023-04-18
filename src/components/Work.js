@@ -1,14 +1,20 @@
 import { motion } from 'framer-motion'
-import React from 'react'
-import { fadeIn } from '../variants'
-
+import React, { useState } from 'react'
+import { AiOutlineClose } from 'react-icons/ai'
 import Img1 from '../assets/portfolio-img1.png'
 import Img2 from '../assets/portfolio-img2.png'
 import Img3 from '../assets/portfolio-img3.png'
+import { fadeIn } from '../variants'
+import Project01 from './Project01'
+import Project02 from './Project02'
+import Project03 from './Project03'
+import Project04 from './Project04'
 
 const Work = () => {
+	const [open, setOpen] = useState(false)
+
 	return (
-		<section className='section mt-8' id='work'>
+		<section className='section mt-8 relative' id='work'>
 			<div className='container mx-auto'>
 				<div className='flex flex-col lg:flex-row gap-x-10'>
 					<motion.div
@@ -25,9 +31,13 @@ const Work = () => {
 								Work
 							</h2>
 							<p className='max-w-sm mb-16 leading-6'>
-							Ниже представлены некоторые из моих последних работ. Я стремлюсь создавать качественные и функциональные продукты, которые удовлетворят потребности моих клиентов.
+								Ниже представлены некоторые из моих последних работ. Я стремлюсь
+								создавать качественные и функциональные продукты, которые
+								удовлетворят потребности моих клиентов.
 							</p>
-							<button className='btn btn-sm'>View all projects</button>
+							<button onClick={() => setOpen(true)} className='btn btn-sm'>
+								View all projects
+							</button>
 						</div>
 						{/* image */}
 						<div className='group relative overflow-hidden border-2 border-white/50 rounded-xl '>
@@ -126,6 +136,45 @@ const Work = () => {
 					</motion.div>
 				</div>
 			</div>
+
+			
+				<div className={`overlay animated ${open ? 'show' : ''} h-screen`}>
+					<div className='d-flex modal bg-no-repeat bg-cover xs:overflow-y-scroll sm:flex-col pt-1'>
+						<div className='text-center mt-8 relative'>
+							<h2 className='h2 text-gradient'>portfolio</h2>
+							<button
+								onClick={() => setOpen(false)}
+								className='absolute top-0 right-10
+					text-3xl cursor-pointer hover:rotate-180 transition-all duration-700'
+							>
+								<AiOutlineClose />
+							</button>
+						</div>
+						<hr />
+						<div className='d-flex text-center mt-4 text-gradient'>
+							<a className='text-link mr-5' href='#'>
+								All
+							</a>
+							<a className='text-link mr-5' href='#'>
+								Website
+							</a>
+							<a className='text-link mr-5' href='#'>
+								UI/UX
+							</a>
+							<a className='text-link' href='#'>
+								App
+							</a>
+						</div>
+
+						<div className='flex p-20 justify-between flex-wrap'>
+							<Project01 />
+							<Project02 />
+							<Project03 />
+							<Project04 />
+						</div>
+					</div>
+				</div>
+			
 		</section>
 	)
 }

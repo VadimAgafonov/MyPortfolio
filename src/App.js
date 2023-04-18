@@ -1,5 +1,6 @@
 import React from 'react'
 // components
+
 import About from './components/About'
 import Banner from './components/Banner'
 import Contact from './components/Contact'
@@ -18,6 +19,7 @@ const App = () => {
 			<Services />
 			<Work />
 			<Contact />
+			
 			{/* <div className='h-[4000px]'></div> */}
 		</div>
 	)
